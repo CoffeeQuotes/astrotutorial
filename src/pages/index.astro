@@ -1,8 +1,10 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Greeting from '../components/Greeting';
 const pageTitle = "Home Page";
 ---
-
 <BaseLayout pageTitle={pageTitle}>
-	<h2>My Awesome Blog subtitle</h2>
+  <h2>My awesome blog subtitle</h2>
+  <!-- Hydrated Component, because astro send and rerun its js on the client side the page loads  -->
+  <Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} />
 </BaseLayout>
